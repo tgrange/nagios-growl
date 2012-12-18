@@ -1,4 +1,3 @@
-
 # Requires growlnotify 1.2.2
 #index for the data to get back found here --  http://roshamboot.org/main/?p=74
 
@@ -90,7 +89,7 @@ for z in $SCRIPT_PATH/current_alerts/*.critical; do
 	SERVICE_CHECK=`echo $HOST_SERVICE | sed 's/\.critical//g' | sed 's/.* --- //g' | sed 's/SLASH/\//g'`
 	if [[ $STATUS == "0" ]]; then
 		echo "$z           $HOST_SERVICE            $SERVICE_CHECK                  $HOST_CHECK"
-		$GROWLNOTIFY -n "Nagios" -t "Critical Error" -m "$HOST_CHECK - $SERVICE_CHECK -- $z" -p2 --image $SCRIPT_PATH/nagios.icns -s
+		$GROWLNOTIFY -n "Nagios" -t "Critical Error" -m "$HOST_CHECK - $SERVICE_CHECK" -p2 --image $SCRIPT_PATH/nagios.icns -s
 		ALERT=1
 		echo "new alert"
 	fi
